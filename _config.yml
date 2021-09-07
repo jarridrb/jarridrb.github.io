@@ -81,8 +81,8 @@ analytics:
 # Site Author
 author:
   name             : "Jarrid Rector-Brooks"
-  avatar           : "profile.png"
-  bio              : "Grad student at MILA studying applications of machine learning to drug discovery"
+  avatar           : "ProfilePic.jpeg"
+  bio              : "Grad student at MILA researching applications of machine learning to drug discovery."
   location         : "Montreal, QC, Canada"
   employer         :
   pubmed           : 
@@ -102,7 +102,7 @@ author:
   instagram        :
   impactstory      : #"https://profiles.impactstory.org/u/xxxx-xxxx-xxxx-xxxx"
   lastfm           :
-  linkedin         :
+  linkedin         : "https://www.linkedin.com/in/jarrid-rector-brooks/"
   orcid            : 
   pinterest        :
   soundcloud       :
