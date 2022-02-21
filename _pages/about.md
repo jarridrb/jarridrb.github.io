@@ -28,7 +28,7 @@ Arxiv (2022) [link](https://arxiv.org/abs/2202.04202)
 Moksh Jain, Salem Lahlou, Hadi Nekoei, Victor Butoi, Paul Bertin, *Jarrid Rector-Brooks*, Maksym Korablyov, Yoshua Bengio \\
 Arxiv (2021) [link](https://arxiv.org/abs/2102.08501)
 
-- **Revisiting Projection-Free Optimization for Strongly Convex Constraint Sets**
+- **Revisiting Projection-Free Optimization for Strongly Convex Constraint Sets** \\
 *Jarrid Rector-Brooks*, Jun-Kun Wang, Barzan Mozafari \\
 AAAI (2019) [link](https://arxiv.org/abs/1811.05831)
 
