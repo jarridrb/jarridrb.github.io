@@ -10,7 +10,7 @@ locale                   : "en-US"
 title                    : "Jarrid Rector-Brooks"
 title_separator          : "-"
 name                     : &name "Jarrid Rector-Brooks"
-description              : &description "Research Master's Student at MILA/Universite de Montreal"
+description              : &description "PhD Student at MILA/Universite de Montreal"
 url                      : https://jarridrb.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "jarridrb/jarridrb.github.io"
@@ -82,7 +82,7 @@ analytics:
 author:
   name             : "Jarrid Rector-Brooks"
   avatar           : "ProfilePic.jpeg"
-  bio              : "Research MSc Student at Mila, Université de Montréal"
+  bio              : "PhD Student at Mila, Université de Montréal"
   location         : "Montréal, Canada"
   employer         :
   pubmed           : 

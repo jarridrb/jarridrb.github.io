@@ -11,7 +11,7 @@ redirect_from:
 About me
 ======
 
-Hi, I'm Jarrid!  I'm currently a research Master's student at [Mila](https://mila.quebec) and the Université de Montréal where I'm supervised by Professors
+Hi, I'm Jarrid!  I'm currently a PhD student at [Mila](https://mila.quebec) and the Université de Montréal where I'm supervised by Professors
 [Yoshua Bengio](https://yoshuabengio.org) and [Sarath Chandar](http://sarathchandar.in).  Before joining Mila, I completed my undergraduate studies at the
 University of Michigan where I was a member of [Barzan Mozafari](https://web.eecs.umich.edu/~mozafari/)'s lab.
 
