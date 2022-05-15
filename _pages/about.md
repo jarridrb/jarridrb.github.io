@@ -22,7 +22,7 @@ and various topics in reinforcement learning.  I also really like distributed sy
 # Publications
 - **Biological Sequence Design with GFlowNets** \\
 Moksh Jain, Emmanuel Bengio, Alex Hernandez-Garcia, *Jarrid Rector-Brooks*, Bonaventure F. P. Dossou, Chanakya Ekbote, Jie Fu, Tianyu Zhang, Micheal Kilgour, Dinghuai Zhang, Lena Simine, Payel Das, Yoshua Bengio \\
-Arxiv (2022) [link](https://arxiv.org/abs/2203.04115)
+ICML (2022) [link](https://arxiv.org/abs/2203.04115)
 
 - **RECOVER: Sequential Model Optimization Platform for Combination Drug Repurposing Identifies Novel Synergistic Compounds *in vitro*** \\
 Paul Bertin, *Jarrid Rector-Brooks*, Deepak Sharma, Thomas Gaudelet, Andrew Anighoro, Torsten Gross, Francisco Martínez-Peña, Eileen L. Tang, Suraj M S, Cristian Regep, Jeremy Hayter, Maksym Korablyov, Nicholas Valiante, Almer van der Sloot, Mike Tyers, Charles Roberts, Michael M. Bronstein, Luke L. Lairson, Jake P. Taylor-King, Yoshua Bengio \\
