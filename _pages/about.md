@@ -20,6 +20,10 @@ active learning and graph representation learning to aid drug discovery, but I'm
 and various topics in reinforcement learning.  I also really like distributed systems (I spent my undergrad in a systems lab).
 
 # Publications
+- **Multi-Objective GFlowNets** \\
+Moksh Jain, Sharath Chandra Raparthy, Alex Hernandez-Garcia, *Jarrid Rector-Brooks*, Yoshua Bengio, Santiago Miret, Emmanuel Bengio \\
+Arxiv (2022) [link](https://arxiv.org/abs/2210.12765)
+
 - **Learning GFlowNets from Partial Episodes for Improved Convergence and Stability** \\
 Kanika Madan, *Jarrid Rector-Brooks*, Maksym Korablyov, Emmanuel Bengio, Moksh Jain, Andrei Nica, Tom Bosc, Yoshua Bengio, Nikolay Malkin \\
 Arxiv (2022) [link](https://arxiv.org/abs/2209.12782)
