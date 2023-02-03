@@ -20,6 +20,10 @@ active learning and graph representation learning to aid drug discovery, but I'm
 and various topics in reinforcement learning.  I also really like distributed systems (I spent my undergrad in a systems lab).
 
 # Publications
+- **Conditional Flow Matching: Simulation-Free Dynamic Optimal Transport** \\
+Alexander Tong, Nikolay Malkin, Guillaume Huguet, Yanlei Zhang, *Jarrid Rector-Brooks*, Kilian Fatras, Guy Wolf, Yoshua Bengio \\
+Arxiv (2023) [link](https://arxiv.org/abs/2302.00482)
+
 - **Multi-Objective GFlowNets** \\
 Moksh Jain, Sharath Chandra Raparthy, Alex Hernandez-Garcia, *Jarrid Rector-Brooks*, Yoshua Bengio, Santiago Miret, Emmanuel Bengio \\
 Arxiv (2022) [link](https://arxiv.org/abs/2210.12765)
@@ -38,7 +42,7 @@ Arxiv (2022) [link](https://arxiv.org/abs/2202.04202)
 
 - **DEUP: Direct Epistemic Uncertainty Prediction** \\
 Moksh Jain, Salem Lahlou, Hadi Nekoei, Victor Butoi, Paul Bertin, *Jarrid Rector-Brooks*, Maksym Korablyov, Yoshua Bengio \\
-Arxiv (2021) [link](https://arxiv.org/abs/2102.08501)
+TMLR (2023) [link](https://arxiv.org/abs/2102.08501)
 
 - **Revisiting Projection-Free Optimization for Strongly Convex Constraint Sets** \\
 *Jarrid Rector-Brooks*, Jun-Kun Wang, Barzan Mozafari \\
