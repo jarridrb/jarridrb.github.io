@@ -26,11 +26,11 @@ Arxiv (2023) [link](https://arxiv.org/abs/2302.00482)
 
 - **Multi-Objective GFlowNets** \\
 Moksh Jain, Sharath Chandra Raparthy, Alex Hernandez-Garcia, *Jarrid Rector-Brooks*, Yoshua Bengio, Santiago Miret, Emmanuel Bengio \\
-Arxiv (2022) [link](https://arxiv.org/abs/2210.12765)
+ICML (2023) [link](https://arxiv.org/abs/2210.12765)
 
 - **Learning GFlowNets from Partial Episodes for Improved Convergence and Stability** \\
 Kanika Madan, *Jarrid Rector-Brooks*, Maksym Korablyov, Emmanuel Bengio, Moksh Jain, Andrei Nica, Tom Bosc, Yoshua Bengio, Nikolay Malkin \\
-Arxiv (2022) [link](https://arxiv.org/abs/2209.12782)
+ICML (2023) [link](https://arxiv.org/abs/2209.12782)
 
 - **Biological Sequence Design with GFlowNets** \\
 Moksh Jain, Emmanuel Bengio, Alex Hernandez-Garcia, *Jarrid Rector-Brooks*, Bonaventure F. P. Dossou, Chanakya Ekbote, Jie Fu, Tianyu Zhang, Micheal Kilgour, Dinghuai Zhang, Lena Simine, Payel Das, Yoshua Bengio \\
