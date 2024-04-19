@@ -16,7 +16,7 @@ Hi, I'm Jarrid!  I'm currently a PhD student at [Mila](https://mila.quebec) and 
 University of Michigan where I was a member of [Barzan Mozafari](https://web.eecs.umich.edu/~mozafari/)'s lab.
 
 My research focuses on the application of machine learning to protein design. I am especially interested in the development of 
-algorithms for efficiently sampling from Boltzmann densities, including things like GFlowNets and diffusion and flow matching models.
+algorithms for efficiently sampling from Boltzmann densities, including things like GFlowNets and diffusion/flow matching models.
 
 # Publications
 *Note that publications may be out of date -- refer to google scholar for an updated list.*
