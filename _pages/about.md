@@ -19,6 +19,7 @@ My research focuses on the application of machine learning to protein design. I 
 algorithms for efficiently sampling from Boltzmann densities, including things like GFlowNets and diffusion and flow matching models.
 
 # Publications
+*Note that publications may be out of date -- refer to google scholar for an updated list.*
 - **Iterated Denoising Energy Matching for Sampling from Boltzmann Densities**
 Tara Akhound-Sadegh\*, *Jarrid Rector-Brooks\**, Avishek Joey Bose\*, Sarthak Mittal, Pablo Lemos, Cheng-Hao Liu, Marcin Sendera, Siamak Ravanbakhsh, Gauthier Gidel, Yoshua Bengio, Nikolay Malkin, Alexander Tong \\
 Arxiv (2024) [link](https://arxiv.org/abs/2402.06121)
