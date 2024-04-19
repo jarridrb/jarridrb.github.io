@@ -25,7 +25,7 @@ Tara Akhound-Sadegh\*, *Jarrid Rector-Brooks\**, Avishek Joey Bose\*, Sarthak Mi
 Arxiv (2024) [link](https://arxiv.org/abs/2402.06121)
 
 - **On diffusion models for amortized inference: Benchmarking and improving stochastic control and sampling** \\
-Marcin Sendera, Minsu Kim, Sarthak Mittal, Pablo Lemos, Luca Scimeca, *Jarrid Rector-Brooks*, Alexandre Adam, Yoshua Bengio, Nikolay Malkin
+Marcin Sendera, Minsu Kim, Sarthak Mittal, Pablo Lemos, Luca Scimeca, *Jarrid Rector-Brooks*, Alexandre Adam, Yoshua Bengio, Nikolay Malkin \\
 Arxiv (2024) [link](https://arxiv.org/abs/2402.05098)
 
 - **Se(3)-stochastic flow matching for protein backbone generation** \\
