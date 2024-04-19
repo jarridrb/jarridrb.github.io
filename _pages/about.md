@@ -20,11 +20,11 @@ algorithms for efficiently sampling from Boltzmann densities, including things l
 
 # Publications
 *Note that publications may be out of date -- refer to google scholar for an updated list.*
-- **Iterated Denoising Energy Matching for Sampling from Boltzmann Densities**
+- **Iterated Denoising Energy Matching for Sampling from Boltzmann Densities** \\
 Tara Akhound-Sadegh\*, *Jarrid Rector-Brooks\**, Avishek Joey Bose\*, Sarthak Mittal, Pablo Lemos, Cheng-Hao Liu, Marcin Sendera, Siamak Ravanbakhsh, Gauthier Gidel, Yoshua Bengio, Nikolay Malkin, Alexander Tong \\
 Arxiv (2024) [link](https://arxiv.org/abs/2402.06121)
 
-- **On diffusion models for amortized inference: Benchmarking and improving stochastic control and sampling**
+- **On diffusion models for amortized inference: Benchmarking and improving stochastic control and sampling** \\
 Marcin Sendera, Minsu Kim, Sarthak Mittal, Pablo Lemos, Luca Scimeca, *Jarrid Rector-Brooks*, Alexandre Adam, Yoshua Bengio, Nikolay Malkin
 Arxiv (2024) [link](https://arxiv.org/abs/2402.05098)
 
@@ -32,7 +32,7 @@ Arxiv (2024) [link](https://arxiv.org/abs/2402.05098)
 Avishek Joey Bose, Tara Akhound-Sadegh, Kilian Fatras, Guillaume Huguet, *Jarrid Rector-Brooks*, Cheng-Hao Liu, Andrei Cristian Nica, Maksym Korablyov, Michael Bronstein, Alexander Tong \\
 ICLR (2024) [link](https://arxiv.org/abs/2310.02391)
 
-- **Learning Conditional Policies for Crystal Design Using Offline Reinforcement Learning**
+- **Learning Conditional Policies for Crystal Design Using Offline Reinforcement Learning** \\
 Prashant Govindarajan, Santiago Miret, *Jarrid Rector-Brooks*, Mariano Phielipp, Janarthanan Rajendran, Sarath Chandar \\
 Digital Discovery (2024)
 
