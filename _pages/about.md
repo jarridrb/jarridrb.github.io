@@ -11,18 +11,41 @@ redirect_from:
 About me
 ======
 
-Hi, I'm Jarrid!  I'm currently a PhD student at [Mila](https://mila.quebec) and the Université de Montréal where I'm supervised by Professors
-[Yoshua Bengio](https://yoshuabengio.org) and [Sarath Chandar](http://sarathchandar.in).  Before joining Mila, I completed my undergraduate studies at the
+Hi, I'm Jarrid!  I'm currently a PhD student at [Mila](https://mila.quebec) and the Université de Montréal where I'm supervised by Professor
+[Yoshua Bengio](https://yoshuabengio.org).  Before joining Mila, I completed my undergraduate studies at the
 University of Michigan where I was a member of [Barzan Mozafari](https://web.eecs.umich.edu/~mozafari/)'s lab.
 
-My current research interests can broadly be summarized as the application of machine learning for humanitarian goals.  I presently work on using
-active learning and graph representation learning to aid drug discovery, but I'm also interested in algorithmic fairness, optimization theory,
-and various topics in reinforcement learning.  I also really like distributed systems (I spent my undergrad in a systems lab).
+My research focuses on the application of machine learning to protein design. I am especially interested in the development of 
+algorithms for efficiently sampling from Boltzmann densities, including things like GFlowNets and diffusion and flow matching models.
 
 # Publications
+- **Iterated Denoising Energy Matching for Sampling from Boltzmann Densities**
+Tara Akhound-Sadegh\*, *Jarrid Rector-Brooks\**, Avishek Joey Bose\*, Sarthak Mittal, Pablo Lemos, Cheng-Hao Liu, Marcin Sendera, Siamak Ravanbakhsh, Gauthier Gidel, Yoshua Bengio, Nikolay Malkin, Alexander Tong \\
+Arxiv (2024) [link](https://arxiv.org/abs/2402.06121)
+
+- **On diffusion models for amortized inference: Benchmarking and improving stochastic control and sampling**
+Marcin Sendera, Minsu Kim, Sarthak Mittal, Pablo Lemos, Luca Scimeca, *Jarrid Rector-Brooks*, Alexandre Adam, Yoshua Bengio, Nikolay Malkin
+Arxiv (2024) [link](https://arxiv.org/abs/2402.05098)
+
+- **Se(3)-stochastic flow matching for protein backbone generation** \\
+Avishek Joey Bose, Tara Akhound-Sadegh, Kilian Fatras, Guillaume Huguet, *Jarrid Rector-Brooks*, Cheng-Hao Liu, Andrei Cristian Nica, Maksym Korablyov, Michael Bronstein, Alexander Tong \\
+ICLR (2024) [link](https://arxiv.org/abs/2310.02391)
+
+- **Learning Conditional Policies for Crystal Design Using Offline Reinforcement Learning**
+Prashant Govindarajan, Santiago Miret, *Jarrid Rector-Brooks*, Mariano Phielipp, Janarthanan Rajendran, Sarath Chandar \\
+Digital Discovery (2024)
+
+- **Thompson sampling for improved exploration in GFlowNets** \\
+*Jarrid Rector-Brooks*, Kanika Madan, Moksh Jain, Maksym Korablyov, Cheng-Hao Liu, Sarath Chandar, Nikolay Malkin, Yoshua Bengio \\
+ICML SPIGM Workshop (2023) [link](https://arxiv.org/abs/2306.17693)
+
+- **Molecular fragment-based diffusion model for drug discovery** \\
+Daniel Levy, *Jarrid Rector-Brooks* \\
+ICLR MLDD Workshop (2023) [link](https://openreview.net/forum?id=LPdXni4tC8)
+
 - **Conditional Flow Matching: Simulation-Free Dynamic Optimal Transport** \\
 Alexander Tong, Nikolay Malkin, Guillaume Huguet, Yanlei Zhang, *Jarrid Rector-Brooks*, Kilian Fatras, Guy Wolf, Yoshua Bengio \\
-Arxiv (2023) [link](https://arxiv.org/abs/2302.00482)
+TMLR (2023) [link](https://arxiv.org/abs/2302.00482)
 
 - **Multi-Objective GFlowNets** \\
 Moksh Jain, Sharath Chandra Raparthy, Alex Hernandez-Garcia, *Jarrid Rector-Brooks*, Yoshua Bengio, Santiago Miret, Emmanuel Bengio \\
@@ -38,7 +61,7 @@ ICML (2022) [link](https://arxiv.org/abs/2203.04115)
 
 - **RECOVER: Sequential Model Optimization Platform for Combination Drug Repurposing Identifies Novel Synergistic Compounds *in vitro*** \\
 Paul Bertin, *Jarrid Rector-Brooks*, Deepak Sharma, Thomas Gaudelet, Andrew Anighoro, Torsten Gross, Francisco Martínez-Peña, Eileen L. Tang, Suraj M S, Cristian Regep, Jeremy Hayter, Maksym Korablyov, Nicholas Valiante, Almer van der Sloot, Mike Tyers, Charles Roberts, Michael M. Bronstein, Luke L. Lairson, Jake P. Taylor-King, Yoshua Bengio \\
-Arxiv (2022) [link](https://arxiv.org/abs/2202.04202)
+Cell Reports Methods (2023) [link](https://arxiv.org/abs/2202.04202)
 
 - **DEUP: Direct Epistemic Uncertainty Prediction** \\
 Moksh Jain, Salem Lahlou, Hadi Nekoei, Victor Butoi, Paul Bertin, *Jarrid Rector-Brooks*, Maksym Korablyov, Yoshua Bengio \\
