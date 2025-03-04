@@ -12,8 +12,7 @@ About me
 ======
 
 Hi, I'm Jarrid!  I'm currently a PhD student at [Mila](https://mila.quebec) and the Université de Montréal where I'm supervised by 
-[Yoshua Bengio](https://yoshuabengio.org). I am also a co-founder of [Dreamfold](https://www.dreamfold.ai/) where we try to improve protein design with structure based
-generative models. Before joining Mila, I completed my undergraduate studies at the
+[Yoshua Bengio](https://yoshuabengio.org). Before joining Mila, I completed my undergraduate studies at the
 University of Michigan where I was a member of [Barzan Mozafari](https://web.eecs.umich.edu/~mozafari/)'s lab.
 
 My research focuses on the application of machine learning to protein design. I am especially interested in the development of 
