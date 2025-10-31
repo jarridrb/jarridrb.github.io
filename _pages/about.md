@@ -11,12 +11,12 @@ redirect_from:
 About me
 ======
 
-I am a PhD student at [Mila](https://mila.quebec) and the Université de Montréal supervised by [Yoshua Bengio](https://yoshuabengio.org).
-I am currently visiting [Frances Arnold](http://fhalab.caltech.edu/)'s lab at Caltech until spring 2026. My research interests center on
-the design of computationally efficient generative modeling, deep learning, solving the sampling problem, and the application of generative 
-models for the *de novo* design of any molecular structure. I have worked extensively on protein generative models and previously co-founded 
-the company [Dreamfold](https://www.dreamfold.ai/) where we worked on said problem. Before joining Mila I grew up in small town Michigan and 
-graduated from the University of Michigan in 2017 with a BS in computer science.
+I am a PhD student at [Mila](https://mila.quebec) and the [Université de Montréal](https://www.umontreal.ca/) supervised by [Yoshua Bengio](https://yoshuabengio.org).
+I am currently visiting [Frances Arnold](http://fhalab.caltech.edu/)'s lab at [Caltech](https://www.caltech.edu/) until spring 2026. My research interests center on
+the design of computationally efficient generative modeling, deep learning, solving the sampling problem, and the application of generative
+models for the *de novo* design of any molecular structure. I have worked extensively on protein generative models and previously co-founded
+the company [Dreamfold](https://www.dreamfold.ai/) where we worked on said problem. Before joining Mila I grew up in small town Michigan and
+graduated from the [University of Michigan](https://umich.edu/) in 2017 with a BS in computer science.
 
 # Publications
 *Note that publications may be out of date -- refer to google scholar for an updated list.*
