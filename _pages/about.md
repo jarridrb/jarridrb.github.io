@@ -11,12 +11,12 @@ redirect_from:
 About me
 ======
 
-Hi, I'm Jarrid!  I'm currently a PhD student at [Mila](https://mila.quebec) and the Université de Montréal where I'm supervised by 
-[Yoshua Bengio](https://yoshuabengio.org). Before joining Mila, I completed my undergraduate studies at the
-University of Michigan where I was a member of [Barzan Mozafari](https://web.eecs.umich.edu/~mozafari/)'s lab.
-
-My research focuses on the application of machine learning to protein design. I am especially interested in the development of 
-algorithms for efficiently sampling from Boltzmann densities, including things like GFlowNets and diffusion/flow matching models.
+I am a PhD student at [Mila](https://mila.quebec) and the Université de Montréal supervised by [Yoshua Bengio](https://yoshuabengio.org).
+I am currently visiting [Frances Arnold](http://fhalab.caltech.edu/)'s lab at Caltech until spring 2026. My research interests center on
+the design of computationally efficient generative modeling, deep learning, solving the sampling problem, and the application of generative 
+models for the *de novo* design of any molecular structure. I have worked extensively on protein generative models and previously co-founded 
+the company [Dreamfold](https://www.dreamfold.ai/) where we worked on said problem. Before joining Mila I grew up in small town Michigan and 
+graduated from the University of Michigan in 2017 with a BS in computer science.
 
 # Publications
 *Note that publications may be out of date -- refer to google scholar for an updated list.*
