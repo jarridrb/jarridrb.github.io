@@ -71,9 +71,3 @@ TMLR (2023) [link](https://arxiv.org/abs/2102.08501)
 - **Revisiting Projection-Free Optimization for Strongly Convex Constraint Sets** \\
 *Jarrid Rector-Brooks*, Jun-Kun Wang, Barzan Mozafari \\
 AAAI (2019) [link](https://arxiv.org/abs/1811.05831)
-
-# Misc
-Besides work, I live with my brilliant partner, our dog Ella, and our cat Clementine. 
-I love hiking, listening to music, drumming (I’m nostalgic for my college marching band days), 
-and playing video games.  If you've got any questions, or would just like to chat, don't
-hesitate to reach out!
