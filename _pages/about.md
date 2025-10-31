@@ -19,7 +19,7 @@ the company [Dreamfold](https://www.dreamfold.ai/) where we worked on said probl
 graduated from the [University of Michigan](https://umich.edu/) in 2017 with a BS in computer science.
 
 # Publications
-*Note that publications are likely out of date -- refer to google scholar for an updated list.*
+*Note that publications are likely out of date -- refer to [Google Scholar](https://scholar.google.com/citations?user=fpG7HHQAAAAJ) for an updated list.*
 - **Iterated Denoising Energy Matching for Sampling from Boltzmann Densities** \\
 Tara Akhound-Sadegh\*, *Jarrid Rector-Brooks\**, Avishek Joey Bose\*, Sarthak Mittal, Pablo Lemos, Cheng-Hao Liu, Marcin Sendera, Siamak Ravanbakhsh, Gauthier Gidel, Yoshua Bengio, Nikolay Malkin, Alexander Tong \\
 Arxiv (2024) [link](https://arxiv.org/abs/2402.06121)
