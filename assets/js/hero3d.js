@@ -1,188 +1,157 @@
-// Signature hero: a denoising "diffusion" particle field that condenses into a
-// procedural protein backbone, synchronized with an amino-acid sequence strip
-// that resolves from noise — a nod to sequence-structure co-design.
-//
-// Loaded as an ES module; `three` is resolved via the import map in the layout.
+// Hero banner: a full-width strip filled with a dense field of solid, slowly
+// rotating cartoon proteins (tube helices, flat beta-arrows, connecting coil)
+// in teal, with occasional pink/orange ligand accents — styled after a
+// biomolecular-design lab header. three.js is resolved via the layout import map.
 import * as THREE from "three";
 
 const canvas = document.getElementById("hero-canvas");
-const seqEl = document.getElementById("seq-strip");
 if (canvas) init();
 
 function init() {
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  // ---- Palette (matches the warm site theme) ----------------------------
-  const GOLD = new THREE.Color("#f6c970");
-  const AMBER = new THREE.Color("#ea9d52");
-  const RED = new THREE.Color("#d9604a");
-  // Sample the gold->amber->red ramp at t in [0,1].
-  const warm = (t) => {
+  // ---- Palette (bright teal proteins on a dark-teal band) ---------------
+  const DEEP = new THREE.Color("#1f8b9b");
+  const MID = new THREE.Color("#34b3c2");
+  const LIGHT = new THREE.Color("#86e3ec");
+  const PINK = new THREE.Color("#e85aa6");
+  const ORANGE = new THREE.Color("#ef9d44");
+  const tealRamp = (t) => {
     const c = new THREE.Color();
-    if (t < 0.5) c.copy(GOLD).lerp(AMBER, t / 0.5);
-    else c.copy(AMBER).lerp(RED, (t - 0.5) / 0.5);
-    return c;
+    return t < 0.5 ? c.copy(DEEP).lerp(MID, t / 0.5) : c.copy(MID).lerp(LIGHT, (t - 0.5) / 0.5);
   };
 
-  // ---- Renderer / scene / camera ----------------------------------------
+  // ---- Renderer / scene / camera / lights -------------------------------
   const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
   renderer.setClearColor(0x000000, 0);
   const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(50, 1, 0.1, 100);
-  camera.position.set(0, 0, 6.2);
-  const group = new THREE.Group();
-  group.position.set(0.15, -0.05, 0);
-  scene.add(group);
+  const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, -100, 100);
+  camera.position.z = 10;
+  scene.add(new THREE.AmbientLight(0xffffff, 0.9));
+  const key = new THREE.DirectionalLight(0xffffff, 0.9); key.position.set(2, 4, 6); scene.add(key);
+  const fill = new THREE.DirectionalLight(0xbfeff5, 0.4); fill.position.set(-4, -3, 2); scene.add(fill);
+  const field = new THREE.Group();
+  scene.add(field);
 
-  // ---- Procedural protein backbone (alpha helices joined by loops) ------
-  const ctrlPoints = buildBackbone();
-  // Center + scale to a consistent size.
-  const box = new THREE.Box3().setFromPoints(ctrlPoints);
-  const center = box.getCenter(new THREE.Vector3());
-  const size = box.getSize(new THREE.Vector3()).length();
-  const scale = 4.6 / size;
-  ctrlPoints.forEach((p) => p.sub(center).multiplyScalar(scale));
-  const curve = new THREE.CatmullRomCurve3(ctrlPoints, false, "catmullrom", 0.5);
+  // ---- Protein field ----------------------------------------------------
+  let proteins = [];
+  const disposables = [];
 
-  // ---- Backbone "ribbon" (a thin glowing tube along the chain) ----------
-  const TUB = 260, RAD = 8;
-  const tubeGeo = new THREE.TubeGeometry(curve, TUB, 0.05, RAD, false);
-  const tubeColors = new Float32Array(tubeGeo.attributes.position.count * 3);
-  let ci = 0;
-  for (let i = 0; i <= TUB; i++) {
-    const c = warm(i / TUB);
-    for (let j = 0; j <= RAD; j++) { tubeColors[ci++] = c.r; tubeColors[ci++] = c.g; tubeColors[ci++] = c.b; }
+  function clearField() {
+    for (const p of proteins) field.remove(p.group);
+    for (const d of disposables) d.dispose();
+    disposables.length = 0;
+    proteins = [];
   }
-  tubeGeo.setAttribute("color", new THREE.Float32BufferAttribute(tubeColors, 3));
-  const tubeMat = new THREE.MeshBasicMaterial({
-    vertexColors: true, transparent: true, opacity: 0,
-    blending: THREE.AdditiveBlending, depthWrite: false,
-  });
-  const tube = new THREE.Mesh(tubeGeo, tubeMat);
-  group.add(tube);
 
-  // ---- Diffusing particle cloud -----------------------------------------
-  const w = window.innerWidth;
-  const N = w < 480 ? 420 : w < 760 ? 620 : 1150;
-  const along = curve.getSpacedPoints(N);
-  const targets = new Float32Array(N * 3);   // condensed (structure) positions
-  const noises = new Float32Array(N * 3);    // diffuse (noise) positions
-  const seeds = new Float32Array(N);
-  const pcol = new Float32Array(N * 3);
-  for (let i = 0; i < N; i++) {
-    const base = along[i % along.length];
-    const off = randInSphere(0.14);
-    targets[i * 3] = base.x + off.x; targets[i * 3 + 1] = base.y + off.y; targets[i * 3 + 2] = base.z + off.z;
-    const ns = randInSphere(3.6);
-    noises[i * 3] = ns.x * 1.25; noises[i * 3 + 1] = ns.y; noises[i * 3 + 2] = ns.z * 1.25;
-    seeds[i] = Math.random() * Math.PI * 2;
-    const c = warm(i / N);
-    pcol[i * 3] = c.r; pcol[i * 3 + 1] = c.g; pcol[i * 3 + 2] = c.b;
-  }
-  const pgeo = new THREE.BufferGeometry();
-  pgeo.setAttribute("position", new THREE.Float32BufferAttribute(new Float32Array(N * 3), 3));
-  pgeo.setAttribute("color", new THREE.Float32BufferAttribute(pcol, 3));
-  const pmat = new THREE.PointsMaterial({
-    size: 0.085, map: makeDotSprite(), vertexColors: true, transparent: true,
-    opacity: 0.95, blending: THREE.AdditiveBlending, depthWrite: false, sizeAttenuation: true,
-  });
-  const points = new THREE.Points(pgeo, pmat);
-  group.add(points);
-  const pos = pgeo.attributes.position.array;
+  // One cartoon protein as a THREE.Group, with a little colour/accent variety.
+  function makeProtein(idx) {
+    const { segs, flat } = buildFold();
+    const box = new THREE.Box3().setFromPoints(flat);
+    const center = box.getCenter(new THREE.Vector3());
+    const k = 2.7 / box.getSize(new THREE.Vector3()).length();
+    const fix = (v) => v.sub(center).multiplyScalar(k);
+    flat.forEach(fix);
+    segs.forEach((s) => s.pts.forEach(fix));
 
-  // ---- Sequence strip ----------------------------------------------------
-  const AA = "ACDEFGHIKLMNPQRSTVWY";
-  let seqLen = 0, target = [], resVer = [];
-  function buildSeq() {
-    if (!seqEl) return;
-    seqLen = Math.max(24, Math.min(64, Math.floor(window.innerWidth / 15)));
-    target = []; resVer = []; seqEl.innerHTML = "";
-    for (let i = 0; i < seqLen; i++) {
-      target.push(AA[(Math.random() * AA.length) | 0]);
-      const s = document.createElement("span");
-      s.className = "res";
-      s.textContent = AA[(Math.random() * AA.length) | 0];
-      seqEl.appendChild(s);
-      resVer.push(false);
-    }
-  }
-  buildSeq();
-  let lastSeq = 0;
-  function updateSeq(d, t) {
-    if (!seqEl || t - lastSeq < 70) return; // throttle scramble ~14fps
-    lastSeq = t;
-    const revealed = Math.floor(d * seqLen);
-    const spans = seqEl.children;
-    for (let i = 0; i < seqLen; i++) {
-      const on = i < revealed;
-      const span = spans[i];
-      if (on) {
-        if (!resVer[i]) { span.textContent = target[i]; span.classList.add("on"); resVer[i] = true; }
-      } else {
-        resVer[i] = false;
-        span.classList.remove("on");
-        span.textContent = AA[(Math.random() * AA.length) | 0];
+    // Slight per-protein colour shift (some cooler/cyan, some deeper teal).
+    const tint = (base) => base.clone().lerp(idx % 3 === 0 ? LIGHT : DEEP, 0.18);
+    const g = new THREE.Group();
+    const mat = (col, rough = 0.55) => {
+      const m = new THREE.MeshStandardMaterial({
+        color: tint(col), emissive: tint(col).clone().multiplyScalar(0.16),
+        roughness: rough, metalness: 0.0, side: THREE.DoubleSide,
+      });
+      return m;
+    };
+    const addMesh = (geo, m) => { disposables.push(geo, m); g.add(new THREE.Mesh(geo, m)); };
+
+    const curve = new THREE.CatmullRomCurve3(flat, false, "catmullrom", 0.5);
+    addMesh(new THREE.TubeGeometry(curve, flat.length * 5, 0.05, 7, false), mat(MID));
+    for (const s of segs) {
+      if (s.type === "helix" && s.pts.length > 2) {
+        addMesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(s.pts), s.pts.length * 5, 0.14, 9, false), mat(DEEP));
+      } else if (s.type === "strand" && s.pts.length > 2) {
+        addMesh(buildArrow(s.pts), mat(LIGHT, 0.5));
       }
     }
+    // Accent ligand / residue on a subset for pops of pink + orange.
+    if (idx % 3 === 1) {
+      const lig = new THREE.Mesh(new THREE.TorusGeometry(0.26, 0.05, 8, 5),
+        new THREE.MeshStandardMaterial({ color: ORANGE, emissive: ORANGE.clone().multiplyScalar(0.2), roughness: 0.45 }));
+      disposables.push(lig.geometry, lig.material);
+      lig.position.set(-1.4, 1.3, 0.4); lig.rotation.set(0.5, 0.3, 0.2); g.add(lig);
+    }
+    if (idx % 4 === 2) {
+      const res = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 0.6, 8),
+        new THREE.MeshStandardMaterial({ color: PINK, emissive: PINK.clone().multiplyScalar(0.2), roughness: 0.5 }));
+      disposables.push(res.geometry, res.material);
+      res.position.set(0.4, 0, 0.5); res.rotation.z = -0.5; g.add(res);
+    }
+    return g;
   }
 
-  // ---- Pointer parallax + drag rotation ---------------------------------
-  let px = 0, py = 0, baseRY = 0, dragging = false, lastX = 0;
+  // Scatter proteins across the wide band, varying depth / scale / rotation.
+  function layoutField() {
+    clearField();
+    const r = canvas.getBoundingClientRect();
+    const aspect = r.width / r.height || 6;
+    const halfH = 2.0, halfW = halfH * aspect;
+    camera.left = -halfW; camera.right = halfW; camera.top = halfH; camera.bottom = -halfH;
+    camera.updateProjectionMatrix();
+
+    const spacing = 1.82;
+    const count = Math.min(30, Math.ceil((halfW * 2) / spacing) + 2);
+    for (let i = 0; i < count; i++) {
+      const g = makeProtein(i);
+      const jitter = (h) => (rand(i * 9.7 + h) - 0.5);
+      const x = -halfW - spacing * 0.5 + i * spacing + jitter(1) * spacing * 0.5;
+      const y = jitter(2) * (halfH * 0.85);
+      g.position.set(x, y, jitter(3) * 4);
+      const sc = 0.88 + rand(i * 3.1) * 0.52;
+      g.scale.setScalar(sc);
+      g.rotation.set(jitter(4) * 1.4, rand(i * 5.5) * Math.PI * 2, jitter(5) * 0.8);
+      field.add(g);
+      proteins.push({ group: g, sy: 0.0011 + rand(i * 2.3) * 0.0017, sx: (jitter(6)) * 0.0006 });
+    }
+  }
+
+  function render() {
+    field.rotation.y = px * 0.06;
+    field.rotation.x = py * 0.04;
+    renderer.render(scene, camera);
+  }
+
+  // ---- Pointer parallax -------------------------------------------------
+  let px = 0, py = 0;
   const heroEl = canvas.closest(".hero") || canvas;
   heroEl.addEventListener("pointermove", (e) => {
     const r = heroEl.getBoundingClientRect();
     px = ((e.clientX - r.left) / r.width) * 2 - 1;
     py = ((e.clientY - r.top) / r.height) * 2 - 1;
-    if (dragging) { baseRY += (e.clientX - lastX) * 0.006; lastX = e.clientX; }
   });
-  heroEl.addEventListener("pointerdown", (e) => { dragging = true; lastX = e.clientX; });
-  window.addEventListener("pointerup", () => { dragging = false; });
 
-  // ---- Sizing ------------------------------------------------------------
+  // ---- Sizing -----------------------------------------------------------
   function resize() {
     const r = canvas.getBoundingClientRect();
     renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
     renderer.setSize(r.width, r.height, false);
-    camera.aspect = r.width / r.height;
-    camera.updateProjectionMatrix();
   }
   resize();
+  layoutField();
   let rt;
-  window.addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(() => { resize(); buildSeq(); }, 150); });
+  window.addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(() => { resize(); layoutField(); }, 160); });
 
-  // ---- Diffusion schedule: cloud -> structure -> hold -> dissolve -------
-  const smooth = (x) => x * x * (3 - 2 * x);
-  function schedule(time) {
-    const P = 11000, e = (time % P) / P;
-    if (e < 0.42) return smooth(e / 0.42);            // denoise in
-    if (e < 0.68) return 1;                            // hold formed
-    return 1 - smooth((e - 0.68) / 0.32);              // re-noise out
-  }
+  if (reduceMotion) { render(); return; }
 
-  function frame(d, time) {
-    for (let i = 0; i < N; i++) {
-      const k = i * 3;
-      const jitter = (1 - d) * 0.05;
-      const s = seeds[i];
-      pos[k] = noises[k] * (1 - d) + targets[k] * d + Math.sin(time * 0.0012 + s) * jitter;
-      pos[k + 1] = noises[k + 1] * (1 - d) + targets[k + 1] * d + Math.cos(time * 0.0013 + s) * jitter;
-      pos[k + 2] = noises[k + 2] * (1 - d) + targets[k + 2] * d + Math.sin(time * 0.0011 + s * 1.3) * jitter;
-    }
-    pgeo.attributes.position.needsUpdate = true;
-    tubeMat.opacity = Math.max(0, (d - 0.35) / 0.65) * 0.75;
-    baseRY += 0.0016;
-    group.rotation.y = baseRY + px * 0.45;
-    group.rotation.x = -0.08 + py * 0.22;
-    renderer.render(scene, camera);
-    updateSeq(d, time);
-  }
-
-  // ---- Reduced motion: render a single formed frame, no loop ------------
-  if (reduceMotion) { frame(1, 0); return; }
-
-  // ---- Animation loop (paused when offscreen / tab hidden) --------------
+  // ---- Animation loop (gentle per-protein rotation) ---------------------
   let running = true, raf = 0;
-  const loop = (t) => { if (!running) return; frame(schedule(t), t); raf = requestAnimationFrame(loop); };
+  const loop = () => {
+    if (!running) return;
+    for (const p of proteins) { p.group.rotation.y += p.sy; p.group.rotation.x += p.sx; }
+    render();
+    raf = requestAnimationFrame(loop);
+  };
   const start = () => { if (!running) { running = true; raf = requestAnimationFrame(loop); } };
   const stop = () => { running = false; cancelAnimationFrame(raf); };
   document.addEventListener("visibilitychange", () => (document.hidden ? stop() : start()));
@@ -197,64 +166,93 @@ function init() {
 // Helpers
 // ---------------------------------------------------------------------------
 
-// A soft round sprite so particles read as glowing dots, not squares.
-function makeDotSprite() {
-  const c = document.createElement("canvas");
-  c.width = c.height = 64;
-  const g = c.getContext("2d");
-  const grd = g.createRadialGradient(32, 32, 0, 32, 32, 32);
-  grd.addColorStop(0, "rgba(255,255,255,1)");
-  grd.addColorStop(0.35, "rgba(255,255,255,0.55)");
-  grd.addColorStop(1, "rgba(255,255,255,0)");
-  g.fillStyle = grd;
-  g.fillRect(0, 0, 64, 64);
-  const tex = new THREE.CanvasTexture(c);
-  tex.needsUpdate = true;
-  return tex;
-}
+// Deterministic pseudo-random so the field is stable across resizes.
+function rand(n) { const x = Math.sin(n * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x); }
 
-// Uniformly-distributed point inside a sphere of the given radius.
-function randInSphere(r) {
-  const u = Math.random(), v = Math.random();
-  const theta = u * Math.PI * 2, phi = Math.acos(2 * v - 1);
-  const rad = r * Math.cbrt(Math.random());
-  return new THREE.Vector3(
-    rad * Math.sin(phi) * Math.cos(theta),
-    rad * Math.sin(phi) * Math.sin(theta),
-    rad * Math.cos(phi),
-  );
-}
-
-// Build a protein-like Cα trace: several alpha helices joined by short loops,
-// each helix pointed in a slightly rotated direction so the chain folds.
-function buildBackbone() {
-  const pts = [];
-  let p = new THREE.Vector3(-2.4, -1.6, -0.4);
-  let axis = new THREE.Vector3(1, 0.5, 0.2).normalize();
-  const helices = [16, 13, 19, 11, 15, 9];
-  for (let h = 0; h < helices.length; h++) {
-    p = addHelix(pts, p, axis, helices[h], h % 2 ? -1 : 1);
-    // Loop: drift a few residues while turning to a new axis.
-    const turn = new THREE.Euler((Math.random() - 0.5) * 1.6, (Math.random() - 0.5) * 2.2, (Math.random() - 0.5) * 1.2);
-    axis = axis.clone().applyEuler(turn).normalize();
-    for (let i = 0; i < 4; i++) { p = p.clone().add(axis.clone().multiplyScalar(0.42)); pts.push(p.clone()); }
+// A flat beta-arrow: a ribbon along the strand that widens into an arrowhead
+// and tapers to a point, lying in the sheet plane.
+function buildArrow(pts) {
+  const up = new THREE.Vector3(0, 1, 0);
+  const tip = pts[pts.length - 1].clone().add(
+    pts[pts.length - 1].clone().sub(pts[pts.length - 2]).normalize().multiplyScalar(0.5));
+  const path = pts.concat([tip]);
+  const m = path.length, body = 0.16, head = 0.32;
+  const L = [], R = [], Nm = [];
+  for (let i = 0; i < m; i++) {
+    const prev = path[Math.max(0, i - 1)], next = path[Math.min(m - 1, i + 1)];
+    const t = next.clone().sub(prev).normalize();
+    let s = new THREE.Vector3().crossVectors(t, up);
+    if (s.lengthSq() < 1e-4) s.set(1, 0, 0);
+    s.normalize();
+    const nrm = new THREE.Vector3().crossVectors(s, t).normalize();
+    const hw = i >= m - 1 ? 0 : i >= m - 3 ? head : body;
+    L.push(path[i].clone().addScaledVector(s, -hw));
+    R.push(path[i].clone().addScaledVector(s, hw));
+    Nm.push(nrm);
   }
-  return pts;
+  const positions = [], normals = [];
+  const tri = (a, b, c, n) => {
+    positions.push(a.x, a.y, a.z, b.x, b.y, b.z, c.x, c.y, c.z);
+    for (let q = 0; q < 3; q++) normals.push(n.x, n.y, n.z);
+  };
+  for (let i = 0; i < m - 1; i++) { tri(L[i], R[i], R[i + 1], Nm[i]); tri(L[i], R[i + 1], L[i + 1], Nm[i]); }
+  const g = new THREE.BufferGeometry();
+  g.setAttribute("position", new THREE.Float32BufferAttribute(positions, 3));
+  g.setAttribute("normal", new THREE.Float32BufferAttribute(normals, 3));
+  return g;
 }
 
-function addHelix(pts, start, axis, n, hand) {
+// A compact, globular alpha/beta fold: a central twisted beta sheet flanked by
+// alpha helices alternating above/below, joined into one continuous chain.
+function buildFold() {
+  const segs = [], flat = [];
+  const add = (type, pts) => { if (pts.length) { segs.push({ type, pts }); for (const p of pts) flat.push(p); } };
+  const nStrand = 5, strandLen = 7, step = 0.40, zGap = 1.05;
+  let dirRight = true, helixSide = 1;
+  for (let s = 0; s < nStrand; s++) {
+    const z = (s - (nStrand - 1) / 2) * zGap;
+    const xStart = dirRight ? -1.4 : 1.4, xDir = dirRight ? 1 : -1;
+    const strand = [];
+    for (let i = 0; i < strandLen; i++) {
+      const x = xStart + xDir * i * step;
+      strand.push(new THREE.Vector3(x, x * 0.16 + (i % 2 ? 0.07 : -0.07), z + (Math.random() - 0.5) * 0.06));
+    }
+    add("strand", strand);
+    if (s < nStrand - 1) {
+      const endX = xStart + xDir * (strandLen - 1) * step;
+      const hy = helixSide * 1.6;
+      add("loop", [
+        new THREE.Vector3(endX + xDir * 0.28, hy * 0.45, z + 0.22),
+        new THREE.Vector3(endX + xDir * 0.10, hy * 0.85, z + 0.46),
+      ]);
+      const haxis = new THREE.Vector3(-xDir, 0.10 * helixSide, 0.05).normalize();
+      const helix = addHelix(new THREE.Vector3(endX, hy, z + 0.6), haxis, 10, s % 2 ? 1 : -1);
+      add("helix", helix);
+      const hEnd = helix[helix.length - 1];
+      const nz = ((s + 1) - (nStrand - 1) / 2) * zGap;
+      const nxStart = !dirRight ? -1.4 : 1.4;
+      add("loop", [
+        new THREE.Vector3(hEnd.x * 0.6, hy * 0.4, (z + nz) / 2),
+        new THREE.Vector3(nxStart - xDir * 0.3, 0.15, nz - 0.28),
+      ]);
+      helixSide *= -1;
+    }
+    dirRight = !dirRight;
+  }
+  return { segs, flat };
+}
+
+function addHelix(start, axis, n, hand) {
   axis = axis.clone().normalize();
   const ref = Math.abs(axis.y) < 0.9 ? new THREE.Vector3(0, 1, 0) : new THREE.Vector3(1, 0, 0);
   const side = new THREE.Vector3().crossVectors(axis, ref).normalize();
   const up = new THREE.Vector3().crossVectors(side, axis).normalize();
-  const radius = 0.5, rise = 0.36, turn = 1.74 * hand; // ~100 deg/residue
-  let end = start.clone();
+  const radius = 0.46, rise = 0.32, turn = 1.74 * hand;
+  const pts = [];
   for (let i = 0; i < n; i++) {
     const a = i * turn;
     const radial = side.clone().multiplyScalar(Math.cos(a) * radius).add(up.clone().multiplyScalar(Math.sin(a) * radius));
-    const c = start.clone().add(axis.clone().multiplyScalar(i * rise));
-    pts.push(c.add(radial));
-    end = start.clone().add(axis.clone().multiplyScalar(i * rise));
+    pts.push(start.clone().add(axis.clone().multiplyScalar(i * rise)).add(radial));
   }
-  return end;
+  return pts;
 }
