@@ -6,6 +6,9 @@ description: "Jarrid Rector-Brooks — PhD student at Mila / Université de Mont
 
 <!-- ============================ HERO ============================ -->
 <section class="hero" id="about">
+  <canvas class="hero__canvas" id="hero-canvas" aria-hidden="true"></canvas>
+  <div class="hero__scrim" aria-hidden="true"></div>
+
   <div class="hero__grid">
     <div class="hero__intro reveal">
       <p class="hero__eyebrow">PhD Student · Mila · Université de Montréal</p>
@@ -62,6 +65,11 @@ description: "Jarrid Rector-Brooks — PhD student at Mila / Université de Mont
       </div>
       <p class="portrait__loc">📍 {{ site.author.location }}</p>
     </div>
+  </div>
+
+  <div class="hero__viz" aria-hidden="true">
+    <span class="hero__viz-tag">denoising · sequence × structure</span>
+    <div class="seq-strip" id="seq-strip"></div>
   </div>
 </section>
 

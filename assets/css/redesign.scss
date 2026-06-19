@@ -193,13 +193,74 @@ main { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
 // ===========================================================================
 //  Hero
 // ===========================================================================
-.hero { padding: 70px 0 30px; }
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 70px 0 76px;
+  min-height: min(86vh, 760px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.hero__canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  display: block;
+  touch-action: pan-y;
+}
+.hero__scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(100deg, var(--bg) 4%, rgba(12,10,7,.72) 32%, rgba(12,10,7,.20) 60%, transparent 88%),
+    linear-gradient(0deg, var(--bg) 1%, transparent 22%);
+}
 .hero__grid {
+  position: relative;
+  z-index: 2;
   display: grid;
   grid-template-columns: 1.5fr 1fr;
   gap: 56px;
   align-items: center;
 }
+
+/* Sequence-strip "co-design" annotation */
+.hero__viz {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 20px;
+  z-index: 2;
+  padding: 0 24px;
+  pointer-events: none;
+}
+.hero__viz-tag {
+  display: block;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 11px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--text-mute);
+  margin-bottom: 8px;
+}
+.seq-strip {
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 13px;
+  letter-spacing: .32em;
+  line-height: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 80%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 80%, transparent);
+}
+.seq-strip .res { color: var(--text-mute); opacity: .55; transition: color .25s, opacity .25s; }
+.seq-strip .res.on { color: var(--gold); opacity: 1; text-shadow: 0 0 9px rgba(240,182,90,.5); }
 .hero__eyebrow {
   font-family: "Space Grotesk", sans-serif;
   font-size: 14px;
