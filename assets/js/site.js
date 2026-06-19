@@ -11,6 +11,16 @@
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
 
+  // "Back to top": the #top target is the sticky nav, which is always pinned
+  // in view, so a plain anchor jump doesn't scroll. Do it manually.
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  Array.prototype.forEach.call(document.querySelectorAll('a[href="#top"]'), function (a) {
+    a.addEventListener("click", function (e) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
+    });
+  });
+
   // Staggered reveal of .reveal elements as they enter the viewport.
   var items = Array.prototype.slice.call(document.querySelectorAll(".reveal"));
   if (!("IntersectionObserver" in window) || items.length === 0) {
