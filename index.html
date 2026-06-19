@@ -11,44 +11,29 @@ description: "Jarrid Rector-Brooks — PhD student at Mila / Université de Mont
 
   <div class="hero__grid">
     <div class="hero__intro reveal">
-      <p class="hero__eyebrow">PhD Student · Mila · Université de Montréal</p>
+      <p class="hero__eyebrow">PhD Student · Mila · Université de Montréal · Caltech</p>
       <h1 class="hero__name">
         Jarrid<br><span class="grad-text">Rector-Brooks</span>
       </h1>
       <p class="hero__tagline">{{ site.tagline }}</p>
 
       <p class="hero__bio">
-        I’m a PhD student at <a href="https://mila.quebec">Mila</a> and the
-        <a href="https://www.umontreal.ca/">Université de Montréal</a>, advised by
-        <a href="https://yoshuabengio.org">Yoshua Bengio</a>. I’m currently visiting
+        I am a PhD student at <a href="https://mila.quebec">Mila</a> and the
+        <a href="https://www.umontreal.ca/">Université de Montréal</a>, supervised by
+        <a href="https://yoshuabengio.org">Yoshua Bengio</a>, and I’m currently a visiting researcher in
         <a href="http://fhalab.caltech.edu/">Frances Arnold’s lab</a> at
-        <a href="https://www.caltech.edu/">Caltech</a> through spring 2026.
+        <a href="https://www.caltech.edu/">Caltech</a>.
       </p>
       <p class="hero__bio">
-        My research spans the full lifecycle of generative models — designing efficient
-        <strong>training</strong> algorithms, getting more out of models at <strong>inference</strong>
-        time, and making them <strong>steerable</strong> across flow matching, diffusion, and discrete
-        diffusion. A common thread is <strong>sampling</strong>: steering or conditioning a model is
-        equivalent to drawing samples from an unnormalized, Boltzmann-like target, a connection I’ve
-        developed for discrete diffusion models (<a href="https://arxiv.org/abs/2410.08134">DDPP</a>)
-        and neural samplers (<a href="https://arxiv.org/abs/2402.06121">iDEM</a>). I’ve also worked on
-        <strong>exploration</strong>, including in reinforcement learning and GFlowNets.
+        My research is on generative models — efficient algorithms to train and perform inference with them, 
+        methods to steer them, and the sampling problems underlying both — across discrete and continuous spaces, 
+        oftentimes aimed at designing proteins and other molecular structures. During my PhD I co-founded
+        <a href="https://www.dreamfold.ai/">Dreamfold</a>, and I previously studied computer science at the
+        <a href="https://umich.edu/">University of Michigan</a> for undergrad.
       </p>
       <p class="hero__bio">
-        I’m especially focused on building strong <strong>multimodal generative models</strong> that
-        co-design protein sequence and structure, and applying them to enzyme design. In
-        <a href="https://arxiv.org/abs/2604.05181">DISCO</a>, our model designs proteins around
-        arbitrary small molecules and — given only a reactive intermediate, with no catalytic residues
-        specified in advance — invents <em>new-to-nature</em> enzymes that catalyze carbene-transfer
-        chemistry nature never evolved, with the best designs matching or exceeding state-of-the-art
-        engineered enzymes.
-      </p>
-      <p class="hero__bio">
-        Much of this has been joint work with close collaborators — among them Alexander Tong,
-        Cheng-Hao Liu, and Esmerelda Whittamer — and many generous people across Mila, Caltech, and
-        beyond. I previously co-founded <a href="https://www.dreamfold.ai/">Dreamfold</a>. Before Mila
-        I grew up in small-town Michigan and graduated from the
-        <a href="https://umich.edu/">University of Michigan</a> in 2017 with a BS in Computer Science.
+        If you’re interested in working together, feel free to reach out by
+        <a href="mailto:{{ site.email }}">email</a>.
       </p>
 
       <div class="hero__actions">
@@ -61,9 +46,10 @@ description: "Jarrid Rector-Brooks — PhD student at Mila / Université de Mont
 
     <div class="hero__portrait reveal">
       <div class="portrait">
-        <img src="{{ site.author.avatar | relative_url }}" alt="Portrait of {{ site.author.name }}" loading="eager">
+        <div class="portrait__crop">
+          <img src="{{ site.author.avatar | relative_url }}" alt="Portrait of {{ site.author.name }}" loading="eager">
+        </div>
       </div>
-      <p class="portrait__loc">📍 {{ site.author.location }}</p>
     </div>
   </div>
 </section>
@@ -77,20 +63,20 @@ description: "Jarrid Rector-Brooks — PhD student at Mila / Université de Mont
 
   <div class="focus-grid">
     <article class="focus reveal">
-      <h3>Generative models</h3>
-      <p>Designing computationally efficient generative models — flow matching, diffusion, and beyond.</p>
+      <h3>Efficient generative models</h3>
+      <p>Flow matching, diffusion, and discrete diffusion models designed to be cheaper to train and faster at inference time.</p>
     </article>
     <article class="focus reveal">
-      <h3>The sampling problem</h3>
-      <p>Sampling from unnormalized densities, including amortized inference and energy-based methods like iDEM.</p>
+      <h3>Steering &amp; control</h3>
+      <p>Guiding pretrained models toward the objectives we care about — controllable, reward-driven generation framed as probabilistic inference (DDPP).</p>
     </article>
     <article class="focus reveal">
-      <h3>Molecular &amp; protein design</h3>
-      <p>Using generative models for the <em>de novo</em> design of proteins and other molecular structures.</p>
+      <h3>Sampling &amp; inference</h3>
+      <p>Drawing samples from unnormalized, Boltzmann-like densities with neural samplers and amortized inference (iDEM).</p>
     </article>
     <article class="focus reveal">
-      <h3>GFlowNets</h3>
-      <p>Exploration, multi-objective optimization, and credit assignment for amortized sampling of diverse candidates.</p>
+      <h3>Protein &amp; molecular design</h3>
+      <p>Multimodal models that co-design protein sequence and structure for the <em>de novo</em> design of proteins, enzymes, and molecules (DISCO, FoldFlow).</p>
     </article>
   </div>
 </section>
@@ -101,7 +87,7 @@ description: "Jarrid Rector-Brooks — PhD student at Mila / Université de Mont
     <span class="section__kicker">02 — Selected work</span>
     <h2 class="section__title">Publications</h2>
     <p class="section__sub">
-      Newest first. For the most up-to-date list, see my
+      This is probably out of date! For the most up-to-date list, see my
       <a href="{{ site.scholar_url }}" target="_blank" rel="noopener">Google Scholar</a>.
     </p>
   </div>
@@ -127,5 +113,26 @@ description: "Jarrid Rector-Brooks — PhD student at Mila / Université de Mont
       </div>
     </article>
     {% endfor %}
+  </div>
+</section>
+
+<!-- ============================= FUN ============================= -->
+<section class="section" id="fun">
+  <div class="section__head reveal">
+    <span class="section__kicker">03 — Beyond the lab</span>
+    <h2 class="section__title">Other stuff</h2>
+  </div>
+  <div class="fun-grid reveal">
+    <div class="fun-text">
+      <p class="hero__bio">
+      When I’m not building models, you’ll usually find me hiking or biking. I grew up in
+      small-town Michigan and played snare drum in the Michigan Marching Band along the way. Most of all, 
+      I’m lucky to share my days with my brilliant partner <a href="https://www.alanavalko.com/" target="_blank" rel="noopener">Alana Valko</a>, 
+      our dog Ella, and cat Clementine.
+      </p>
+    </div>
+    <figure class="fun-photo">
+      <img src="{{ '/images/pets.jpg' | relative_url }}" alt="Our dog Ella and cat Clementine at home" loading="lazy">
+    </figure>
   </div>
 </section>
