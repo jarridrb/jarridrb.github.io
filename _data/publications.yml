@@ -1,0 +1,210 @@
+# Publications, newest first. Deduplicated from a Google Scholar export
+# (canonical venue chosen where preprint + proceedings both appear).
+# `me` (Jarrid Rector-Brooks) is highlighted automatically; `acronym`
+# drives the gradient thumbnail tile.
+
+# ---------------------------------- 2026 ----------------------------------
+- title: "General Multimodal Protein Design Enables DNA-Encoding of Chemistry"
+  authors: "Jarrid Rector-Brooks, Théophile Lambert, Marta Skreta, Daniel Roth, Yueming Long, Zi-Qi Li, Xi Zhang, Miruna Cretu, Francesca-Zhoufan Li, Tanvi Ganapathy, et al."
+  venue: "arXiv"
+  year: 2026
+  acronym: "MMDesign"
+  links:
+    - { label: "arXiv", url: "https://arxiv.org/abs/2604.05181" }
+
+- title: "Inverse-Confidence Sampling for Continuous Diffusion Language Models"
+  authors: "Andrei Rekesh, Jarrid Rector-Brooks, Cheng-Hao Liu"
+  venue: "ICML Workshop"
+  year: 2026
+  acronym: "ICS"
+  links: []
+
+# ---------------------------------- 2025 ----------------------------------
+- title: "OXtal: An All-Atom Diffusion Model for Organic Crystal Structure Prediction"
+  authors: "Emily Jin, Andrei Cristian Nica, Mikhail Galkin, Jarrid Rector-Brooks, Kin Long Kelvin Lee, Santiago Miret, Frances H. Arnold, Michael Bronstein, Avishek Joey Bose, Alexander Tong"
+  venue: "arXiv"
+  year: 2025
+  acronym: "OXtal"
+  links:
+    - { label: "arXiv", url: "https://arxiv.org/abs/2512.06987" }
+
+- title: "Planner-Aware Path Learning in Diffusion Language Model Training"
+  authors: "Fred Zhangzhi Peng, Zachary Bezemek, Jarrid Rector-Brooks, Shuibai Zhang, Anru R. Zhang, Michael Bronstein, Alexander Tong, Avishek Joey Bose"
+  venue: "arXiv"
+  year: 2025
+  acronym: "PAPL"
+  links:
+    - { label: "arXiv", url: "https://arxiv.org/abs/2509.23405" }
+
+- title: "Solving Bayesian Inverse Problems with Diffusion Priors and Off-Policy RL"
+  authors: "Luca Scimeca, Siddarth Venkatraman, Moksh Jain, Minsu Kim, Marcin Sendera, Mohsin Hasan, Luke Rowe, Sarthak Mittal, Pablo Lemos, Emmanuel Bengio, Jarrid Rector-Brooks, et al."
+  venue: "arXiv"
+  year: 2025
+  acronym: "BIP-RL"
+  links:
+    - { label: "arXiv", url: "https://arxiv.org/abs/2503.09746" }
+
+- title: "Path Planning for Masked Diffusion Model Sampling"
+  authors: "Fred Zhangzhi Peng, Zachary Bezemek, Sawan Patel, Jarrid Rector-Brooks, Sherwood Yao, Avishek Joey Bose, Alexander Tong, Pranam Chatterjee"
+  venue: "arXiv"
+  year: 2025
+  acronym: "PathPlan"
+  links:
+    - { label: "arXiv", url: "https://arxiv.org/abs/2502.03540" }
+
+- title: "From Discrete-Time Policies to Continuous-Time Diffusion Samplers: Asymptotic Equivalences and Faster Training"
+  authors: "Julius Berner, Lorenz Richter, Marcin Sendera, Jarrid Rector-Brooks, Nikolay Malkin"
+  venue: "arXiv"
+  year: 2025
+  acronym: "Disc2Cont"
+  links:
+    - { label: "arXiv", url: "https://arxiv.org/abs/2501.06148" }
+
+- title: "Steering Masked Discrete Diffusion Models via Discrete Denoising Posterior Prediction"
+  authors: "Jarrid Rector-Brooks, Mohsin Hasan, Zhangzhi Peng, Zachary Quinn, Cheng-Hao Liu, Sarthak Mittal, Nouha Dziri, Michael Bronstein, Yoshua Bengio, Pranam Chatterjee"
+  venue: "ICLR"
+  year: 2025
+  acronym: "DDPP"
+  links:
+    - { label: "arXiv", url: "https://arxiv.org/abs/2410.08134" }
+
+# ---------------------------------- 2024 ----------------------------------
+- title: "Iterated Denoising Energy Matching for Sampling from Boltzmann Densities"
+  authors: "Tara Akhound-Sadegh*, Jarrid Rector-Brooks*, Avishek Joey Bose*, Sarthak Mittal, Pablo Lemos, Cheng-Hao Liu, Marcin Sendera, Siamak Ravanbakhsh, Gauthier Gidel, Yoshua Bengio, Nikolay Malkin, Alexander Tong"
+  venue: "ICML"
+  year: 2024
+  acronym: "iDEM"
+  note: "*Equal contribution"
+  links:
+    - { label: "arXiv", url: "https://arxiv.org/abs/2402.06121" }
+
+- title: "Improved Off-Policy Training of Diffusion Samplers"
+  authors: "Marcin Sendera, Minsu Kim, Sarthak Mittal, Pablo Lemos, Luca Scimeca, Jarrid Rector-Brooks, Alexandre Adam, Yoshua Bengio, Nikolay Malkin"
+  venue: "NeurIPS"
+  year: 2024
+  acronym: "Off-Policy"
+  links:
+    - { label: "arXiv", url: "https://arxiv.org/abs/2402.05098" }
+
+- title: "Sequence-Augmented SE(3)-Flow Matching for Conditional Protein Backbone Generation"
+  authors: "Guillaume Huguet, James Vuckovic, Kilian Fatras, Eric Thibodeau-Laufer, Pablo Lemos, Riashat Islam, Cheng-Hao Liu, Jarrid Rector-Brooks, Tara Akhound-Sadegh, Michael Bronstein, et al."
+  venue: "NeurIPS"
+  year: 2024
+  acronym: "FoldFlow-2"
+  links:
+    - { label: "arXiv", url: "https://arxiv.org/abs/2405.20313" }
+
+- title: "Amortizing Intractable Inference in Diffusion Models for Vision, Language, and Control"
+  authors: "Siddarth Venkatraman, Moksh Jain, Luca Scimeca, Minsu Kim, Marcin Sendera, Mohsin Hasan, Luke Rowe, Sarthak Mittal, Pablo Lemos, Emmanuel Bengio, Jarrid Rector-Brooks, et al."
+  venue: "NeurIPS"
+  year: 2024
+  acronym: "RTB"
+  links:
+    - { label: "arXiv", url: "https://arxiv.org/abs/2405.20971" }
+
+- title: "Adaptive Teachers for Amortized Samplers"
+  authors: "Minsu Kim, Sanghyeok Choi, Taeyoung Yun, Emmanuel Bengio, Leo Feng, Jarrid Rector-Brooks, Sungsoo Ahn, Jinkyoo Park, Nikolay Malkin, Yoshua Bengio"
+  venue: "arXiv"
+  year: 2024
+  acronym: "Teachers"
+  links:
+    - { label: "arXiv", url: "https://arxiv.org/abs/2410.01432" }
+
+- title: "Generative Active Learning for the Search of Small-Molecule Protein Binders"
+  authors: "Maksym Korablyov, Cheng-Hao Liu, Moksh Jain, Almer M. van der Sloot, Eric Jolicoeur, Edward Ruediger, Andrei Cristian Nica, Emmanuel Bengio, Kostiantyn Lapchevskyi, Daniel St-Cyr, Jarrid Rector-Brooks, et al."
+  venue: "arXiv"
+  year: 2024
+  acronym: "GAL-Bind"
+  links:
+    - { label: "arXiv", url: "https://arxiv.org/abs/2405.01616" }
+
+- title: "SE(3)-Stochastic Flow Matching for Protein Backbone Generation"
+  authors: "Avishek Joey Bose, Tara Akhound-Sadegh, Kilian Fatras, Guillaume Huguet, Jarrid Rector-Brooks, Cheng-Hao Liu, Andrei Cristian Nica, Maksym Korablyov, Michael Bronstein, Alexander Tong"
+  venue: "ICLR"
+  year: 2024
+  acronym: "FoldFlow"
+  links:
+    - { label: "arXiv", url: "https://arxiv.org/abs/2310.02391" }
+
+- title: "Learning Conditional Policies for Crystal Design Using Offline Reinforcement Learning"
+  authors: "Prashant Govindarajan, Santiago Miret, Jarrid Rector-Brooks, Mariano Phielipp, Janarthanan Rajendran, Sarath Chandar"
+  venue: "Digital Discovery"
+  year: 2024
+  acronym: "Crystal"
+  links:
+    - { label: "OpenReview", url: "https://openreview.net/forum?id=VbjD8w2ctG" }
+
+# ---------------------------------- 2023 ----------------------------------
+- title: "Improving and Generalizing Flow-Based Generative Models with Minibatch Optimal Transport"
+  authors: "Alexander Tong, Kilian Fatras, Nikolay Malkin, Guillaume Huguet, Yanlei Zhang, Jarrid Rector-Brooks, Guy Wolf, Yoshua Bengio"
+  venue: "TMLR"
+  year: 2023
+  acronym: "OT-CFM"
+  links:
+    - { label: "arXiv", url: "https://arxiv.org/abs/2302.00482" }
+
+- title: "Learning GFlowNets from Partial Episodes for Improved Convergence and Stability"
+  authors: "Kanika Madan, Jarrid Rector-Brooks, Maksym Korablyov, Emmanuel Bengio, Moksh Jain, Andrei Nica, Tom Bosc, Yoshua Bengio, Nikolay Malkin"
+  venue: "ICML"
+  year: 2023
+  acronym: "SubTB"
+  links:
+    - { label: "arXiv", url: "https://arxiv.org/abs/2209.12782" }
+
+- title: "Multi-Objective GFlowNets"
+  authors: "Moksh Jain, Sharath Chandra Raparthy, Alex Hernández-García, Jarrid Rector-Brooks, Yoshua Bengio, Santiago Miret, Emmanuel Bengio"
+  venue: "ICML"
+  year: 2023
+  acronym: "MOGFN"
+  links:
+    - { label: "arXiv", url: "https://arxiv.org/abs/2210.12765" }
+
+- title: "Thompson Sampling for Improved Exploration in GFlowNets"
+  authors: "Jarrid Rector-Brooks, Kanika Madan, Moksh Jain, Maksym Korablyov, Cheng-Hao Liu, Sarath Chandar, Nikolay Malkin, Yoshua Bengio"
+  venue: "ICML Workshop"
+  year: 2023
+  acronym: "TS-GFN"
+  links:
+    - { label: "arXiv", url: "https://arxiv.org/abs/2306.17693" }
+
+- title: "Molecular Fragment-Based Diffusion Model for Drug Discovery"
+  authors: "Daniel Levy, Jarrid Rector-Brooks"
+  venue: "ICLR Workshop"
+  year: 2023
+  acronym: "FragDiff"
+  links:
+    - { label: "OpenReview", url: "https://openreview.net/forum?id=LPdXni4tC8" }
+
+- title: "RECOVER: Sequential Model Optimization Platform for Combination Drug Repurposing Identifies Novel Synergistic Compounds in vitro"
+  authors: "Paul Bertin, Jarrid Rector-Brooks, Deepak Sharma, Thomas Gaudelet, Andrew Anighoro, Torsten Gross, Francisco Martínez-Peña, Eileen L. Tang, Suraj M S, Cristian Regep, et al."
+  venue: "Cell Reports Methods"
+  year: 2023
+  acronym: "RECOVER"
+  links:
+    - { label: "arXiv", url: "https://arxiv.org/abs/2202.04202" }
+
+- title: "DEUP: Direct Epistemic Uncertainty Prediction"
+  authors: "Salem Lahlou, Moksh Jain, Hadi Nekoei, Victor Ion Butoi, Paul Bertin, Jarrid Rector-Brooks, Maksym Korablyov, Yoshua Bengio"
+  venue: "TMLR"
+  year: 2023
+  acronym: "DEUP"
+  links:
+    - { label: "arXiv", url: "https://arxiv.org/abs/2102.08501" }
+
+# ---------------------------------- 2022 ----------------------------------
+- title: "Biological Sequence Design with GFlowNets"
+  authors: "Moksh Jain, Emmanuel Bengio, Alex Hernández-García, Jarrid Rector-Brooks, Bonaventure F. P. Dossou, Chanakya Ekbote, Jie Fu, Tianyu Zhang, Micheal Kilgour, Dinghuai Zhang, et al."
+  venue: "ICML"
+  year: 2022
+  acronym: "BioSeq"
+  links:
+    - { label: "arXiv", url: "https://arxiv.org/abs/2203.04115" }
+
+# ---------------------------------- 2019 ----------------------------------
+- title: "Revisiting Projection-Free Optimization for Strongly Convex Constraint Sets"
+  authors: "Jarrid Rector-Brooks, Jun-Kun Wang, Barzan Mozafari"
+  venue: "AAAI"
+  year: 2019
+  acronym: "Frank-Wolfe"
+  links:
+    - { label: "arXiv", url: "https://arxiv.org/abs/1811.05831" }
