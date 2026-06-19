@@ -378,9 +378,9 @@ main { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
   overflow: hidden;
   background:
     linear-gradient(var(--angle, 130deg),
-      hsl(40 14% 22%) 0%,
-      hsl(38 11% 30%) 50%,
-      hsl(36 9% 25%) 100%);
+      hsl(40, 14%, 22%) 0%,
+      hsl(38, 11%, 30%) 50%,
+      hsl(36, 9%, 25%) 100%);
   border: 1px solid var(--border);
 }
 .pub__thumb::after {
