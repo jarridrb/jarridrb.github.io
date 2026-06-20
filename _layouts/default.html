@@ -31,7 +31,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;450;500;600&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="{{ '/assets/css/redesign.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/redesign.css' | relative_url }}?v={{ site.time | date: '%s' }}">
 
   <!-- three.js for the interactive hero (resolved by hero3d.js) -->
   <script type="importmap">
@@ -75,7 +75,7 @@
     </div>
   </footer>
 
-  <script src="{{ '/assets/js/site.js' | relative_url }}" defer></script>
-  <script type="module" src="{{ '/assets/js/hero3d.js' | relative_url }}"></script>
+  <script src="{{ '/assets/js/site.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
+  <script type="module" src="{{ '/assets/js/hero3d.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
 </body>
 </html>
