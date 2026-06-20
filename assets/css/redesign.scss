@@ -305,6 +305,12 @@ main { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
   height: 100%;
   border-radius: 21px;
   overflow: hidden;
+  /* iOS Safari doesn't clip the transformed <img> with overflow:hidden alone;
+     clip-path reliably clips it to the rounded frame. */
+  -webkit-clip-path: inset(0 round 21px);
+  clip-path: inset(0 round 21px);
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
 }
 .portrait img {
   width: 100%;
