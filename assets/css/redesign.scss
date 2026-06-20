@@ -313,13 +313,16 @@ main { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
   clip-path: inset(0 round 21px);
 }
 .portrait img {
-  width: 100%;
-  height: 100%;
+  /* Over-scale the image box (not via transform) so the head reads larger.
+     Safari refuses to clip a *transformed* child against the parent's
+     clip-path/overflow, so it bleeds past the frame — sizing + negative
+     margins gives the same zoom while staying clippable. */
+  width: 112%;
+  height: 112%;
+  margin: -6% 0 0 -6%;
   object-fit: cover;
   object-position: center 46%;
   display: block;
-  /* slight zoom creates horizontal room; translateX nudges the head left */
-  transform: scale(1.12) translateX(-5%);
 }
 .portrait__loc { color: var(--text-mute); font-size: 14.5px; margin: 0; }
 
