@@ -182,8 +182,10 @@ main { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
 .hero {
   position: relative;
   width: 100vw;
-  margin-left: 50%;
-  transform: translateX(-50%);
+  /* Full-bleed via margins (not transform) so Safari doesn't promote the hero
+     to a layer that paints over the sticky nav. */
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
   isolation: isolate;
   overflow: hidden;
   min-height: min(82vh, 720px);
@@ -309,8 +311,6 @@ main { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
      clip-path reliably clips it to the rounded frame. */
   -webkit-clip-path: inset(0 round 21px);
   clip-path: inset(0 round 21px);
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
 }
 .portrait img {
   width: 100%;
